@@ -49,7 +49,7 @@ class SeasonTest {
 	void testSeason() {
 		assertNotNull(season);
 		assertEquals(1, season.getId());
-		assertTrue(season.getName().equalsIgnoreCase(""));
+		assertTrue(season.getName().equalsIgnoreCase("Winter"));
 	}
 
 }

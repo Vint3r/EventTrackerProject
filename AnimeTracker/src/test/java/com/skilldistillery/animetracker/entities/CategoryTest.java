@@ -47,7 +47,7 @@ class CategoryTest {
 	void testCategory() {
 		assertNotNull(cat);
 		assertEquals(1, cat.getId());
-		assertTrue(cat.getName().equalsIgnoreCase(""));
+		assertTrue(cat.getName().equalsIgnoreCase("Comedy"));
 	}
 	
 	@Test

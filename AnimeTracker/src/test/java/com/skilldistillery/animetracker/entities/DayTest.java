@@ -46,7 +46,7 @@ class DayTest {
 	@DisplayName("Testing for correct basic field information coming back from the database")
 	void testDay() {
 		assertNotNull(day);
-		assertTrue(day.getName().equalsIgnoreCase(""));
+		assertTrue(day.getName().equalsIgnoreCase("Monday"));
 		assertEquals(1, day.getId());
 	}
 
