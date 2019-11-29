@@ -1,5 +1,6 @@
 package com.skilldistillery.animetracker.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,16 +14,17 @@ public class Day {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String day;
+	@Column(name = "day")
+	private String name;
 
 	public Day() {
 		super();
 	}
 
-	public Day(int id, String day) {
+	public Day(int id, String name) {
 		super();
 		this.id = id;
-		this.day = day;
+		this.name = name;
 	}
 
 	public int getId() {
@@ -33,19 +35,19 @@ public class Day {
 		this.id = id;
 	}
 
-	public String getDay() {
-		return day;
+	public String getName() {
+		return name;
 	}
 
-	public void setDay(String day) {
-		this.day = day;
+	public void setDay(String name) {
+		this.name = name;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((day == null) ? 0 : day.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + id;
 		return result;
 	}
@@ -59,10 +61,10 @@ public class Day {
 		if (getClass() != obj.getClass())
 			return false;
 		Day other = (Day) obj;
-		if (day == null) {
-			if (other.day != null)
+		if (name == null) {
+			if (other.name != null)
 				return false;
-		} else if (!day.equals(other.day))
+		} else if (!name.equals(other.name))
 			return false;
 		if (id != other.id)
 			return false;
@@ -71,7 +73,7 @@ public class Day {
 
 	@Override
 	public String toString() {
-		return "Day [id=" + id + ", day=" + day + "]";
+		return "Day [id=" + id + ", day=" + name + "]";
 	}
 
 }

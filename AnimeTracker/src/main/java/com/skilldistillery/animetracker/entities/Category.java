@@ -2,6 +2,7 @@ package com.skilldistillery.animetracker.entities;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,7 +15,8 @@ public class Category {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String category;
+	@Column(name = "category")
+	private String name;
 	@ManyToMany(mappedBy = "categories")
 	private List<Anime> animu;
 
@@ -22,10 +24,10 @@ public class Category {
 		super();
 	}
 
-	public Category(int id, String category, List<Anime> animu) {
+	public Category(int id, String name, List<Anime> animu) {
 		super();
 		this.id = id;
-		this.category = category;
+		this.name = name;
 		this.animu = animu;
 	}
 
@@ -37,12 +39,12 @@ public class Category {
 		this.id = id;
 	}
 
-	public String getCategory() {
-		return category;
+	public String getName() {
+		return name;
 	}
 
-	public void setCategory(String category) {
-		this.category = category;
+	public void setName(String category) {
+		this.name = category;
 	}
 
 	public List<Anime> getAnimu() {
@@ -58,7 +60,7 @@ public class Category {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((animu == null) ? 0 : animu.hashCode());
-		result = prime * result + ((category == null) ? 0 : category.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + id;
 		return result;
 	}
@@ -77,10 +79,10 @@ public class Category {
 				return false;
 		} else if (!animu.equals(other.animu))
 			return false;
-		if (category == null) {
-			if (other.category != null)
+		if (name == null) {
+			if (other.name != null)
 				return false;
-		} else if (!category.equals(other.category))
+		} else if (!name.equals(other.name))
 			return false;
 		if (id != other.id)
 			return false;
@@ -89,6 +91,6 @@ public class Category {
 
 	@Override
 	public String toString() {
-		return "Category [id=" + id + ", category=" + category + "]";
+		return "Category [id=" + id + ", category=" + name + "]";
 	}
 }

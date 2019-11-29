@@ -1,5 +1,6 @@
 package com.skilldistillery.animetracker.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,16 +12,17 @@ public class Season {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String season;
+	@Column(name = "season")
+	private String name;
 
 	public Season() {
 		super();
 	}
 
-	public Season(int id, String season) {
+	public Season(int id, String name) {
 		super();
 		this.id = id;
-		this.season = season;
+		this.name = name;
 	}
 
 	public int getId() {
@@ -31,12 +33,12 @@ public class Season {
 		this.id = id;
 	}
 
-	public String getSeason() {
-		return season;
+	public String getName() {
+		return name;
 	}
 
-	public void setSeason(String season) {
-		this.season = season;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	@Override
@@ -44,7 +46,7 @@ public class Season {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + id;
-		result = prime * result + ((season == null) ? 0 : season.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
 
@@ -59,17 +61,17 @@ public class Season {
 		Season other = (Season) obj;
 		if (id != other.id)
 			return false;
-		if (season == null) {
-			if (other.season != null)
+		if (name == null) {
+			if (other.name != null)
 				return false;
-		} else if (!season.equals(other.season))
+		} else if (!name.equals(other.name))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Season [id=" + id + ", season=" + season + "]";
+		return "Season [id=" + id + ", season=" + name + "]";
 	}
 
 }
