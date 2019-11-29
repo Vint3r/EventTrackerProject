@@ -9,10 +9,13 @@
     </provider>
 	
 	<!-- Class Definitions -->
-	<class>com.skilldistillery.animetracker.entities.FIXME</class>
+	<class>com.skilldistillery.animetracker.entities.Anime</class>
+	<class>com.skilldistillery.animetracker.entities.Category</class>
+	<class>com.skilldistillery.animetracker.entities.Day</class>
+	<class>com.skilldistillery.animetracker.entities.Season</class>
 	
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/animeTrackerdb?useSSL=false&amp;useLegacyDatetimeCode=false&amp;serverTimezone=MST" />
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/animetrackerdb?useSSL=false&amp;useLegacyDatetimeCode=false&amp;serverTimezone=MST" />
       <property name="javax.persistence.jdbc.user" value="animeuser"/>
       <property name="javax.persistence.jdbc.password" value="animeuser" />
       <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
