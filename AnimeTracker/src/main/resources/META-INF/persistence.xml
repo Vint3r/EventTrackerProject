@@ -16,8 +16,8 @@
 	
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/animetrackerdb?useSSL=false&amp;useLegacyDatetimeCode=false&amp;serverTimezone=MST" />
-      <property name="javax.persistence.jdbc.user" value="animeuser"/>
-      <property name="javax.persistence.jdbc.password" value="animeuser" />
+      <property name="javax.persistence.jdbc.user" value="anime"/>
+      <property name="javax.persistence.jdbc.password" value="anime" />
       <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
 
       <property name="hibernate.show_sql" value="false" />

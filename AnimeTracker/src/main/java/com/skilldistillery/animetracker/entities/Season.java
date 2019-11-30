@@ -19,7 +19,7 @@ public class Season {
 		super();
 	}
 
-	public Season(int id, String name) {
+	public Season(String name) {
 		super();
 		this.id = id;
 		this.name = name;
