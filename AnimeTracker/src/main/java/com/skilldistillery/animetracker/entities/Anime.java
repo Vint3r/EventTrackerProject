@@ -1,5 +1,6 @@
 package com.skilldistillery.animetracker.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -11,6 +12,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 @Entity
 public class Anime {
@@ -33,6 +37,7 @@ public class Anime {
 	private Day day;
 	@ManyToMany
 	@JoinTable(name = "anime_category", joinColumns = @JoinColumn(name = "anime_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Category> categories;
 
 	public Anime() {
@@ -201,4 +206,21 @@ public class Anime {
 				+ ", interested=" + interested + ", year=" + year + ", season=" + season + ", day=" + day + "]";
 	}
 
+	public void addCategory(Category cat) {
+		if (categories == null) {
+			categories = new ArrayList<>();
+		}
+		
+		if (!categories.contains(cat)) {
+			categories.add(cat);
+			cat.addAnime(this);
+		}
+	}
+	
+	public void removeCategory(Category cat) {
+		if (categories != null && categories.contains(cat)) {
+			categories.remove(cat);
+			cat.removeAnime(this);
+		}
+	}
 }

@@ -46,26 +46,26 @@ class AnimeTest {
 	@DisplayName("Testing basic fields in anime class for correct data pulled from the database")
 	void testAnime() {
 		assertNotNull(anime);
-		assertTrue(anime.getDescription().equalsIgnoreCase(""));
-		assertTrue(anime.getInterested());
-		assertTrue(anime.getSimulcast());
-		assertTrue(anime.getTitle().equalsIgnoreCase(""));
-		assertEquals(1, anime.getYear());
+		assertTrue(anime.getDescription().equalsIgnoreCase("The fourth season of Haikyuu!!"));
+		assertFalse(anime.getInterested());
+		assertFalse(anime.getSimulcast());
+		assertTrue(anime.getTitle().equalsIgnoreCase("Haikyuu!!: To the Top"));
+		assertTrue(anime.getYear().equals("2020"));
 	}
 	
 	@Test
 	@DisplayName("Test mapping of Day and Anime classes")
 	void testDay() {
 		assertNotNull(anime.getDay());
-		assertTrue(anime.getDay().getName().equalsIgnoreCase(""));
-		assertEquals(1, anime.getDay().getId());
+		assertTrue(anime.getDay().getName().equalsIgnoreCase("unknown"));
+		assertEquals(8, anime.getDay().getId());
 	}
 	
 	@Test
 	@DisplayName("Test mapping of Season and Anime classes")
 	void testSeason() {
 		assertNotNull(anime.getSeason());
-		assertTrue(anime.getSeason().getName().equalsIgnoreCase(""));
+		assertTrue(anime.getSeason().getName().equalsIgnoreCase("winter"));
 		assertEquals(1, anime.getSeason().getId());
 	}
 	
@@ -74,8 +74,8 @@ class AnimeTest {
 	void testCategory() {
 		assertNotNull(anime.getCategories());
 		assertTrue(anime.getCategories().size() > 0);
-		assertTrue(anime.getCategories().get(0).getName().equalsIgnoreCase(""));
-		assertTrue(anime.getCategories().get(0).getName().equalsIgnoreCase(""));
+		assertTrue(anime.getCategories().get(0).getName().equalsIgnoreCase("Comedy"));
+		assertTrue(anime.getCategories().get(4).getName().equalsIgnoreCase("Shonen"));
 		
 	}
 

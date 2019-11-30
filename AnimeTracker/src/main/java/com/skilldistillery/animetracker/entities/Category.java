@@ -1,5 +1,6 @@
 package com.skilldistillery.animetracker.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -8,6 +9,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -21,6 +25,7 @@ public class Category {
 	private String name;
 	@JsonIgnore
 	@ManyToMany(mappedBy = "categories")
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Anime> animu;
 
 	public Category() {
@@ -95,5 +100,23 @@ public class Category {
 	@Override
 	public String toString() {
 		return "Category [id=" + id + ", category=" + name + "]";
+	}
+	
+	public void addAnime(Anime anime) {
+		if (animu == null) {
+			animu = new ArrayList<>();
+		}
+		
+		if (!animu.contains(anime)) {
+			animu.add(anime);
+			anime.addCategory(this);
+		}
+	}
+	
+	public void removeAnime(Anime anime) {
+		if (animu != null && animu.contains(anime)) {
+			animu.remove(anime);
+			anime.removeCategory(this);
+		}
 	}
 }

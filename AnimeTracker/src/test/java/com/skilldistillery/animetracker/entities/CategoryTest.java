@@ -55,10 +55,10 @@ class CategoryTest {
 	void testAnimeCat() {
 		assertNotNull(cat.getAnimu());
 		assertTrue(cat.getAnimu().size() > 0);
-		assertTrue(cat.getAnimu().get(0).getTitle().equalsIgnoreCase(""));
-		assertTrue(cat.getAnimu().get(0).getDescription().equalsIgnoreCase(""));
-		assertTrue(cat.getAnimu().get(0).getYear().equals(""));
-		assertTrue(cat.getAnimu().get(0).getInterested());
+		assertTrue(cat.getAnimu().get(0).getTitle().equalsIgnoreCase("Haikyuu!!: To the Top"));
+		assertTrue(cat.getAnimu().get(0).getDescription().equalsIgnoreCase("The fourth season of Haikyuu!!"));
+		assertTrue(cat.getAnimu().get(25).getYear().equals("2020"));
+		assertFalse(cat.getAnimu().get(25).getInterested());
 	}
 
 }
