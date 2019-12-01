@@ -13,5 +13,5 @@ public interface AnimeRepository extends JpaRepository<Anime, Integer> {
 	public List<Anime> findBySeasonId(int seasonId);
 	public List<Anime> findByCategoriesId(int catId);
 	public List<Anime> findByDayId(int dayId);
-	
+	public List<Anime> findByInterestedIsTrue();
 }

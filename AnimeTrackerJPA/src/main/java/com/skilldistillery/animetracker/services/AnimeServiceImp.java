@@ -108,4 +108,10 @@ public class AnimeServiceImp implements AnimeService {
 		return animu;
 	}
 
+	@Override
+	public List<Anime> findAllInterestedAnime() {
+		List<Anime> anime = repo.findByInterestedIsTrue();
+		return anime;
+	}
+
 }

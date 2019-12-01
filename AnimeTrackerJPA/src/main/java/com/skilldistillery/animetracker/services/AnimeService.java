@@ -12,4 +12,5 @@ public interface AnimeService {
 	public Anime updateAnime(int id, Anime anime);
 	public boolean deleteAnime(int id);
 	public List<Anime> getAllAnimeByKeyword(String keyword);
+	public List<Anime> findAllInterestedAnime();
 }
