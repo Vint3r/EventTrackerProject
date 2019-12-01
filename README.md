@@ -1,16 +1,16 @@
 # EventTrackerProject
 
-##Overview
+## Overview
 ---
 
 A anime site to track upcoming shows including release dates, air dates, and basic information regarding them.
 
-###Description
+### Description
 ---
 
 Just the back end is created right now, but 16 api mappings have been created and are displayed in the table following this brief description. The site itself when completed will be mostly used for tracking upcoming or already released anime, and can be used very similarly to a tv guide almost. Allowing users to get a brief description of any of the anime in the database and then allowing them to choose if they are interested in them or not. If they decide to "follow" a show it will be displayed for them as a reminder for when the shows are airing and so on.
 
-###Api mapping chart
+### Api mapping chart
 ---
 
 | Return Type     | Route                           | Functionality                         |
@@ -32,7 +32,7 @@ Just the back end is created right now, but 16 api mappings have been created an
 | `Day`           |`GET api/days/{id}`              | Gets one day by id                    |
 | `List<Anime>`   |`GET api/animes/days/{id}`       | Gets list of anime by day id          |
 
-###Lessons learned
+### Lessons learned
 ---
 
 So far I have learned that REST looks like it can really help organize my controllers and help greatly with pulling information from the front end of the site. I am personally looking forward to working with it more along with Repo's and other technologies given to use from the JPA libraries. All together really streamlining and simplifying the whole design of the back end. All in all I didn't have too many issues with this project, mostly just issues with tedious error checking by sending in junk information. Slowly chipping away at it and adding more error checks.
