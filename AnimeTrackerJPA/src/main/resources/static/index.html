@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Anime Tracker</title>
+<script type="text/javascript" src="js/script.js"></script>
+</head>
+<body>
+	<h1>Event tracker project for skill distillery</h1>
+	<form name="lookUpId">
+		<input type="number" name="animeId" placeholder="Enter id">
+		<button name="idLookUp">Get Anime by Id</button>
+	</form>
+	<div id="output">
+		<div id="animeData"></div>
+		<form name="del">
+			<button id="delAnime" name="deleteAnime" value="${animeId}" hidden="true"></button>
+		</form>
+		<div id="miscData"></div>
+	</div>
+</body>
+</html>
