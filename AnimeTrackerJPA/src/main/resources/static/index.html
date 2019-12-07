@@ -11,12 +11,17 @@
 		<input type="number" name="animeId" placeholder="Enter id">
 		<button name="idLookUp">Get Anime by Id</button>
 	</form>
+	<form name="allAnime">
+		<button name="allAnimeBtn">Get Full Anime List</button>
+	</form>
 	<div id="output">
-		<div id="animeData"></div>
-		<form name="del">
-			<button id="delAnime" name="deleteAnime" value="${animeId}" hidden="true"></button>
-		</form>
-		<div id="miscData"></div>
+		<div id="animeData">
+			<form name="del">
+				<button id="delAnime" name="deleteAnime" hidden="true" value="${animeId}"></button>
+			</form>
+		</div>
+		<div id="updateAnime">
+		</div>
 	</div>
 </body>
 </html>
