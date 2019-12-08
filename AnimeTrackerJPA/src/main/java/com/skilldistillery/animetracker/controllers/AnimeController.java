@@ -25,12 +25,12 @@ public class AnimeController {
 	@Autowired
 	private AnimeService svc;
 	
-	@GetMapping("animes")
+	@GetMapping("animes")//
 	public List<Anime> getAllAnime() {
 		return svc.listAllAnime();
 	}
 	
-	@GetMapping("animes/{id}")
+	@GetMapping("animes/{id}")//
 	public Anime getAnimeById(@PathVariable("id") int id, HttpServletResponse resp) {
 		Anime anime = svc.getAnimeById(id);
 		if (anime == null) {
@@ -39,7 +39,7 @@ public class AnimeController {
 		return anime;
 	}
 	
-	@PostMapping("animes")
+	@PostMapping("animes")//
 	public Anime createAnAnime(@RequestBody Anime anime, HttpServletRequest req, HttpServletResponse resp) {
 		try {
 			anime = svc.createAnime(anime);
@@ -56,7 +56,7 @@ public class AnimeController {
 		return anime;
 	}
 	
-	@DeleteMapping("animes/{id}")
+	@DeleteMapping("animes/{id}")//
 	public void deleteAnime(@PathVariable("id") int id, HttpServletResponse resp) {
 		try {
 			boolean success = svc.deleteAnime(id);
@@ -81,7 +81,7 @@ public class AnimeController {
 		return animu;
 	}
 	
-	@PutMapping("animes/{id}")
+	@PutMapping("animes/{id}")//
 	public Anime updateAnime(@PathVariable("id") int id, @RequestBody Anime anime, HttpServletResponse resp, HttpServletRequest req) {
 		Anime animeUpdated = null;
 		try {

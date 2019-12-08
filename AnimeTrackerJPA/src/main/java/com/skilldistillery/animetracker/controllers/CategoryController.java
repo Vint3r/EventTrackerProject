@@ -21,7 +21,7 @@ public class CategoryController {
 	@Autowired
 	private CategoryService svc;
 	
-	@GetMapping("categories")
+	@GetMapping("categories")//
 	public List<Category> getAllDays() {
 		return svc.listAllCategories();
 	}

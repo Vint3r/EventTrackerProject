@@ -21,7 +21,7 @@ public class DayController {
 	@Autowired
 	private DayService svc;
 	
-	@GetMapping("days")
+	@GetMapping("days")//
 	public List<Day> getAllDays() {
 		return svc.listAllDays();
 	}

@@ -7,21 +7,49 @@
 </head>
 <body>
 	<h1>Event tracker project for skill distillery</h1>
-	<form name="lookUpId">
-		<input type="number" name="animeId" placeholder="Enter id">
-		<button name="idLookUp">Get Anime by Id</button>
-	</form>
-	<form name="allAnime">
-		<button name="allAnimeBtn">Get Full Anime List</button>
-	</form>
+	<div id="outer1">
+		<div id="inner1" style="display: inline-block">
+			<form name="lookUpId">
+				<input type="number" name="animeId" placeholder="Enter id">
+				<button name="idLookUp">Get Anime by Id</button>
+			</form>
+		</div>
+		<div id="inner1" style="display: inline-block">
+			<form name="allAnime">
+				<button name="allAnimeBtn">Get Full Anime List</button>
+			</form>
+		</div>
+		<div id="inner1" style="display: inline-block">
+			<form name="create">
+				<button id="createBtn">Create an Anime</button>
+			</form>
+		</div>
+	</div>
+	<div id="outer">
+		<div class="inner" style="display: inline-block">
+			<form name="searchCat">
+				<button id="catBtn">Search by Category</button>
+			</form>
+		</div>
+		<div class="inner" style="display: inline-block">
+			<form name="searchDay">
+				<button id="dayBtn">Search by Day aired</button>
+			</form>
+		</div>
+		<div class="inner" style="display: inline-block">
+			<form name="searchSeason">
+				<button id="seasonBtn">Search by Season aired</button>
+			</form>
+		</div>
+	</div>
 	<div id="output">
 		<div id="animeData">
 			<form name="del">
-				<button id="delAnime" name="deleteAnime" hidden="true" value="${animeId}"></button>
+				<button id="delAnime" name="deleteAnime" hidden="true"
+					value="${animeId}"></button>
 			</form>
 		</div>
-		<div id="updateAnime">
-		</div>
+		<div id="updateAnime"></div>
 	</div>
 </body>
 </html>

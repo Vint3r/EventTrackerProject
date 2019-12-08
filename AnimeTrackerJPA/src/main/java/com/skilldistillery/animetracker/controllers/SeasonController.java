@@ -21,13 +21,13 @@ public class SeasonController {
 	@Autowired
 	private SeasonService svc;
 	
-	@GetMapping("seasons")
+	@GetMapping("seasons")//
 	public List<Season> getAllDays() {
 		return svc.listAllSeasons();
 	}
 	
 	@GetMapping("seasons/{id}")
-	public Season getDayById(@PathVariable("id") int id, HttpServletResponse resp) {
+	public Season getSeasonById(@PathVariable("id") int id, HttpServletResponse resp) {
 		Season season = svc.findSeasonById(id);
 		if (season == null) {
 			resp.setStatus(404);
