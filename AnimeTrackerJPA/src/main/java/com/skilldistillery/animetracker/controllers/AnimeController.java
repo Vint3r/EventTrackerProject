@@ -98,7 +98,7 @@ public class AnimeController {
 		return animeUpdated;
 	}
 	
-	@GetMapping("animes/interested")
+	@GetMapping("animes/interested")//
 	public List<Anime> interestedAnimes(HttpServletResponse resp) {
 		List<Anime> animu = svc.findAllInterestedAnime();
 		if (animu == null || animu.size() == 0) {
