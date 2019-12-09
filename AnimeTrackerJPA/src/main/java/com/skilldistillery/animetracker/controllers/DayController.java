@@ -35,7 +35,7 @@ public class DayController {
 		return day;
 	}
 	
-	@GetMapping("animes/days/{id}")
+	@GetMapping("animes/days/{id}") //
 	public List<Anime> getAllAnimeByDayId(@PathVariable("id") int id, HttpServletResponse resp) {
 		List<Anime> animu = svc.findAllAnimeByDayId(id);
 		if(animu == null || animu.size() == 0) {

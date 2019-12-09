@@ -35,7 +35,7 @@ public class CategoryController {
 		return cat;
 	}
 	
-	@GetMapping("animes/categories/{id}")
+	@GetMapping("animes/categories/{id}") //
 	public List<Anime> getAllAnimeByCategoryId(@PathVariable("id") int id, HttpServletResponse resp) {
 		List<Anime> animu = svc.findAllAnimeByCategoryId(id);
 		if(animu == null || animu.size() == 0) {

@@ -35,7 +35,7 @@ public class SeasonController {
 		return season;
 	}
 	
-	@GetMapping("animes/seasons/{id}")
+	@GetMapping("animes/seasons/{id}") //
 	public List<Anime> getAllAnimeBySeason(@PathVariable("id") int id, HttpServletResponse resp) {
 		List<Anime> animu = svc.findAllAnimeBySeasonId(id);
 		if(animu == null || animu.size() == 0) {

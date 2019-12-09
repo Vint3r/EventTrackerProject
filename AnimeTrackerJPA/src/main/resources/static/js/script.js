@@ -44,6 +44,32 @@ function init() {
 		e.preventDefault();
 		createSeasonSearch();
 	})
+
+	document.searchInterested.interestedBtn.addEventListener('click', function(
+			e) {
+		e.preventDefault();
+		getInterested();
+	})
+}
+
+function getInterested() {
+	var xhr = new XMLHttpRequest();
+
+	xhr.open('GET', 'http://localhost:8084/api/animes/interested');
+
+	animes = '';
+
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState === 4 && xhr.status < 400) {
+			animes = JSON.parse(xhr.responseText);
+			displayListAnime(animes);
+		} else {
+			var failDiv = document.getElementById('animeData');
+			failDiv.textContent = '';
+			failDiv.textContent = "Anime not found, sorry 'bout that!";
+		}
+	}
+	xhr.send(null);
 }
 
 function createCategorySearch() {
@@ -68,7 +94,7 @@ function createCategorySearch() {
 	searchBtn.name = "searchByCat";
 	searchBtn.textContent = "Search for anime";
 
-	btn.addEventListener('click', function(e) {
+	searchBtn.addEventListener('click', function(e) {
 		e.preventDefault();
 
 		let formSearch = e.target.parentElement;
@@ -101,6 +127,7 @@ function getAnimeCat(cat) {
 	}
 	xhr.send(null);
 }
+
 function createDaySearch() {
 	animeData.textContent = '';
 	let form = document.createElement('form');
@@ -123,7 +150,7 @@ function createDaySearch() {
 	searchBtn.name = "searchByDay";
 	searchBtn.textContent = "Search for anime";
 
-	btn.addEventListener('click', function(e) {
+	searchBtn.addEventListener('click', function(e) {
 		e.preventDefault();
 
 		let formSearch = e.target.parentElement;
@@ -179,12 +206,12 @@ function createSeasonSearch() {
 	searchBtn.name = "searchByDay";
 	searchBtn.textContent = "Search for anime";
 
-	btn.addEventListener('click', function(e) {
+	searchBtn.addEventListener('click', function(e) {
 		e.preventDefault();
 
 		let formSearch = e.target.parentElement;
-		let seasonsDrop = formSearch.seaons1;
-		let season = daysDrop.options[seasonsDrop.selectedIndex].value;
+		let seasonsDrop = formSearch.seasons1;
+		let season = seasonsDrop.options[seasonsDrop.selectedIndex].value;
 
 		getAnimeSeason(season);
 	})
@@ -193,7 +220,7 @@ function createSeasonSearch() {
 	animeData.appendChild(form);
 }
 
-function getAnimeSeasons(season) {
+function getAnimeSeason(season) {
 	var xhr = new XMLHttpRequest();
 
 	xhr.open('GET', 'http://localhost:8084/api/animes/seasons/' + season);
