@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +17,7 @@ import com.skilldistillery.animetracker.services.SeasonService;
 
 @RestController
 @RequestMapping("api")
+@CrossOrigin({ "*", "http://localhost:4209" })
 public class SeasonController {
 
 	@Autowired

@@ -55,7 +55,7 @@ function init() {
 function getInterested() {
 	var xhr = new XMLHttpRequest();
 
-	xhr.open('GET', 'http://localhost:8084/api/animes/interested');
+	xhr.open('GET', '/api/animes/interested');
 
 	animes = '';
 
@@ -111,7 +111,7 @@ function createCategorySearch() {
 function getAnimeCat(cat) {
 	var xhr = new XMLHttpRequest();
 
-	xhr.open('GET', 'http://localhost:8084/api/animes/categories/' + cat);
+	xhr.open('GET', 'http://3.132.224.153:8080/api/animes/categories/' + cat);
 
 	animes = '';
 
@@ -167,7 +167,7 @@ function createDaySearch() {
 function getAnimeDay(day) {
 	var xhr = new XMLHttpRequest();
 
-	xhr.open('GET', 'http://localhost:8084/api/animes/days/' + day);
+	xhr.open('GET', 'http://3.132.224.153:8080/api/animes/days/' + day);
 
 	animes = '';
 
@@ -223,7 +223,7 @@ function createSeasonSearch() {
 function getAnimeSeason(season) {
 	var xhr = new XMLHttpRequest();
 
-	xhr.open('GET', 'http://localhost:8084/api/animes/seasons/' + season);
+	xhr.open('GET', 'http://3.132.224.153:8080/api/animes/seasons/' + season);
 
 	animes = '';
 
@@ -242,7 +242,7 @@ function getAnimeSeason(season) {
 function getCategories() {
 	var xhr = new XMLHttpRequest();
 
-	xhr.open('GET', 'http://localhost:8084/api/categories');
+	xhr.open('GET', 'http://3.132.224.153:8080/api/categories');
 
 	categories = '';
 
@@ -260,7 +260,7 @@ function getCategories() {
 function getDays() {
 	var xhr = new XMLHttpRequest();
 
-	xhr.open('GET', 'http://localhost:8084/api/days');
+	xhr.open('GET', 'http://3.132.224.153:8080/api/days');
 
 	days = '';
 
@@ -278,7 +278,7 @@ function getDays() {
 function getSeasons() {
 	var xhr = new XMLHttpRequest();
 
-	xhr.open('GET', 'http://localhost:8084/api/seasons');
+	xhr.open('GET', 'http://3.132.224.153:8080/api/seasons');
 
 	seasons = '';
 
@@ -296,7 +296,7 @@ function getSeasons() {
 function deleteAnime(animeId) {
 	var xhr = new XMLHttpRequest();
 
-	xhr.open('Delete', 'http://localhost:8084/api/animes/' + animeId);
+	xhr.open('Delete', 'http://3.132.224.153:8080/api/animes/' + animeId);
 
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState === 4 && xhr.status < 400) {
@@ -316,7 +316,7 @@ function deleteAnime(animeId) {
 function getAllAnime() {
 	var xhr = new XMLHttpRequest();
 
-	xhr.open('GET', 'http://localhost:8084/api/animes');
+	xhr.open('GET', 'http://3.132.224.153:8080/api/animes');
 
 	var animes = '';
 
@@ -336,7 +336,7 @@ function getAllAnime() {
 function getAnimeSingle(animeId) {
 	var xhr = new XMLHttpRequest();
 
-	xhr.open('GET', 'http://localhost:8084/api/animes/' + animeId);
+	xhr.open('GET', 'http://3.132.224.153:8080/api/animes/' + animeId);
 
 	var anime = '';
 
@@ -684,7 +684,7 @@ function createUpdateForm(anime) {
 function updateAnime(id, title, description, year, day, season, simulcast,
 		interested, cats) {
 	var xhr = new XMLHttpRequest();
-	xhr.open('PUT', 'http://localhost:8084/api/animes/' + id);
+	xhr.open('PUT', 'http://3.132.224.153:8080/api/animes/' + id);
 	xhr.setRequestHeader("Content-type", "application/json");
 
 	xhr.onreadystatechange = function() {
@@ -876,7 +876,7 @@ function createCreateForm() {
 function createAnime(title, description, year, day, season, simulcast,
 		interested, cats) {
 	var xhr = new XMLHttpRequest();
-	xhr.open('POST', 'http://localhost:8084/api/animes');
+	xhr.open('POST', 'http://3.132.224.153:8080/api/animes');
 	xhr.setRequestHeader("Content-type", "application/json");
 
 	xhr.onreadystatechange = function() {
