@@ -24,6 +24,8 @@ public class Anime {
 	private int id;
 	private String title;
 	private String description;
+	@Column(name = "image_url")
+	private String imgUrl;
 	private Boolean simulcast;
 	@Column(name = "interested_in")
 	private Boolean interested;
@@ -56,6 +58,14 @@ public class Anime {
 		this.season = season;
 		this.day = day;
 		this.categories = categories;
+	}
+
+	public String getImgUrl() {
+		return imgUrl;
+	}
+
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
 	}
 
 	public int getId() {
@@ -210,13 +220,13 @@ public class Anime {
 		if (categories == null) {
 			categories = new ArrayList<>();
 		}
-		
+
 		if (!categories.contains(cat)) {
 			categories.add(cat);
 			cat.addAnime(this);
 		}
 	}
-	
+
 	public void removeCategory(Category cat) {
 		if (categories != null && categories.contains(cat)) {
 			categories.remove(cat);

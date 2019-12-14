@@ -59,6 +59,7 @@ public class AnimeServiceImp implements AnimeService {
 			animeUpdate.setSimulcast(anime.getSimulcast());
 			animeUpdate.setInterested(anime.getInterested());
 			animeUpdate.setYear(anime.getYear());
+			animeUpdate.setImgUrl(anime.getImgUrl());
 			if(anime.getCategories() != null) {
 				animeUpdate.setCategories(anime.getCategories());
 			}
