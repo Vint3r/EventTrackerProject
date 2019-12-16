@@ -28,7 +28,8 @@ public class AnimeController {
 	private AnimeService svc;
 	
 	@GetMapping("animes")//
-	public List<Anime> getAllAnime() {
+	public List<Anime> getAllAnime(HttpServletResponse resp) {
+		System.out.println(svc.listAllAnime());
 		return svc.listAllAnime();
 	}
 	

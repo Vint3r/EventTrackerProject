@@ -1,0 +1,84 @@
+<form #idForm="ngForm">
+  <input type="number" name="id" id="id" ngModel>
+  <input type="submit" value="Search by ID" (click)="searchById(idForm)">
+</form>
+
+<div *ngIf="selectedAnime && !upAnime">
+  <h1>{{ selectedAnime.title }} ({{ selectedAnime.id }})</h1>
+  <img [src]="selectedAnime.imgUrl">
+  <blockquote>{{selectedAnime.description}}</blockquote>
+  <p>Airs on: {{selectedAnime.day.name}}, Season aired: {{selectedAnime.season.name}}, Year Released: {{selectedAnime.year}}</p>
+  <p>Simulcast with japan: {{selectedAnime.simulcast}}, You are interested: {{selectedAnime.interested}}</p>
+  Categories:<ul *ngFor="let cat of selectedAnime.categories">
+    <li>{{cat.name}}</li>
+  </ul>
+  <button (click)="selectedAnime = null">Go Back</button>
+  <button (click)="updateSetup()">Update {{selectedAnime.title}}</button>
+  <button (click)="delete()">Delete {{selectedAnime.title}}</button>
+</div>
+
+<div *ngIf="!selectedAnime && !upAnime && !createBool">
+  <button (click)="createBool = true">Create Anime</button>
+  <div *ngFor="let anime of animeList">
+    <img [src]="anime.imgUrl" (click)="selectedAnime = anime"/>
+    <h1>{{ anime.title }}</h1>
+    <p>Airs on: {{ anime.day.name }}</p>
+    <p>Season: {{ anime.season.name }}</p>
+  </div>
+</div>
+
+<div *ngIf="upAnime && !selectedAnime">
+  <form>
+    <label>Anime Title: </label>
+    <input type="text" name="title" placeholder="{{upAnime.title}}" [(ngModel)]="upAnime.title"><br><br>
+    <label>Anime Description: </label>
+    <input type="text" name="description" placeholder="{{upAnime.description}}" [(ngModel)]="upAnime.description"><br><br>
+    <label>Anime Image Url: </label>
+    <input type="text" name="imgUrl" placeholder="{{upAnime.imgUrl}}" [(ngModel)]="upAnime.imgUrl"><br><br>
+    <label>Year Released: </label>
+    <input type="number" name="year" placeholder="2020" [(ngModel)]="upAnime.year">
+    <label>Anime Air Day:</label>
+    <select [(ngModel)]="upAnime.day.id" name="day">
+      <option *ngFor="let day of dayList" [value]="day.id">{{day.name}}</option>
+    </select><br><br>
+    <label>Anime Season: </label>
+    <select [(ngModel)]="upAnime.season.id" name="season">
+      <option *ngFor="let season of seasonList" [value]="season.id">{{season.name}}</option>
+    </select><br><br>
+    <label>Anime Categories: </label><br>
+    <span *ngFor="let cat of catList">{{cat.name}}: <input type="checkbox" name="category" id="category" checked="{{cat.selected}}" value="cat" (change)="changeCatSelected(cat, upAnime)"><br *ngIf="cat | evenCatId"></span>
+    <br><br><label>Are You Interested In Watching This?</label>
+    <input type="checkbox" name="interested" id="interested" checked="{{upAnime.interested}}" [(ngModel)]="upAnime.interested"><br><br>
+    <label>Is It Simulcast With Japan?</label>
+    <input type="checkbox" name="simulcast" id="simulcast" checked="{{upAnime.simulcast}}" [(ngModel)]="upAnime.simulcast"><br><br>
+    <button (click)="updateAnime(true)">Update {{upAnime.title}}</button>
+  </form>
+</div>
+
+<div *ngIf="createBool">
+  <form #newForm = "ngForm">
+    <label>Anime Title: </label>
+    <input type="text" name="title" placeholder="Enter title" ngModel><br><br>
+    <label>Anime Description: </label>
+    <input type="text" name="description" placeholer="Enter description" ngModel><br><br>
+    <label>Anime Image Url: </label>
+    <input type="text" name="imgUrl" placeholder="Enter image url" ngModel><br><br>
+    <label>Year Released: </label>
+    <input type="number" name="year" placeholder="2020" ngModel>
+    <label>Anime Air Day: </label>
+    <select name="day" [(ngModel)]="newDay">
+     <option *ngFor="let day of dayList" name="day" [value]="day.id">{{day.name}}</option>
+    </select><br><br>
+    <label>Anime Season: </label>
+    <select name="season" [(ngModel)]="newSeason">
+      <option *ngFor="let season of seasonList" name="season" [value]="season.id">{{season.name}}</option>
+    </select><br><br>
+    <label>Anime Categories: </label><br>
+    <span *ngFor="let cat of catList">{{cat.name}}: <input type="checkbox" name="category" id="category" [value]="cat" (change)="changeCatCreate(cat)"><br *ngIf="cat | evenCatId"></span>
+    <br><br><label>Are You Interested In Watching This?</label>
+    <input type="checkbox" name="interested" id="interested" ngModel><br><br>
+    <label>Is It Simulcast With Japan?</label>
+    <input type="checkbox" name="simulcast" id="simulcast" ngModel><br><br>
+    <button (click)="create(newForm)">Create {{newForm.value.title}}</button>
+  </form>
+</div>

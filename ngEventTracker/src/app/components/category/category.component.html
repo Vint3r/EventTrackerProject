@@ -1,0 +1,10 @@
+<br><span class="showHand" *ngFor="let cat of catList" (click)="selectedCat = cat"
+    >{{ cat.name }} |
+</span>
+
+<div *ngFor="let anime of animeList | catSearch: selectedCat">
+  <img [src]="anime.imgUrl" (click)="displayAnime(anime)"/>
+  <h1>{{ anime.title }}</h1>
+  <p>Airs on: {{ anime.day.name }}</p>
+  <p>Season: {{ anime.season.name }}</p>
+</div>
